@@ -70,7 +70,7 @@ public class TutorialController {
 
         //Hide player from other players.
         if(serverTutorial.invisiblePlayer){
-            plugin.getServer().getOnlinePlayers().stream().forEach(p -> p.hidePlayer(player));
+            plugin.getServer().getOnlinePlayers().stream().forEach(p -> p.hidePlayer(plugin, player));
         }
 
         plugin.inTutorial.put(player.getUniqueId(), this);
@@ -128,7 +128,7 @@ public class TutorialController {
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    plugin.getServer().getOnlinePlayers().stream().forEach(p -> p.showPlayer(player));
+                    plugin.getServer().getOnlinePlayers().stream().forEach(p -> p.showPlayer(plugin, player));
                 }
             }.runTask(plugin);
         }

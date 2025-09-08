@@ -21,7 +21,8 @@ permissions:
       servertutorialplus.command.remove: true
       servertutorialplus.command.addpoint: true
       servertutorialplus.command.removepoint: true
-      servertutorialplus.command.play: true
+      servertutorialplus.command.play.self: true
+      servertutorialplus.command.play.other: false
       servertutorialplus.command.player: true
       servertutorialplus.command.quit: true
       servertutorialplus.command.playpoint: true
@@ -46,8 +47,11 @@ permissions:
   servertutorialplus.command.removepoint:
     description: Allows you to remove a point in an existing ST+ tutorial.
     default: op
-  servertutorialplus.command.play:
+  servertutorialplus.command.play.self:
     description: Allows you to play an existing ST+ tutorial.
+    default: op
+  servertutorialplus.command.play.other:
+    description: Allows you to play an existing ST+ tutorial for another player.
     default: op
   servertutorialplus.command.player:
     description: Allows you view the ST+ stats of a player.

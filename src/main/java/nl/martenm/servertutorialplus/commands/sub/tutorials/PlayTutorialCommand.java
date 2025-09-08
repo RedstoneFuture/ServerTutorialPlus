@@ -34,7 +34,7 @@ public class PlayTutorialCommand extends SimpleCommand  {
 
         Player target = null;
         if(args.length != 1) {
-            if(!sender.hasPermission(getFullPermission() + ".others")) {
+            if(!sender.hasPermission(getFullPermission() + ".other")) {
                 sender.sendMessage(Lang.NO_PERMS.toString());
                 return true;
             }
@@ -61,6 +61,10 @@ public class PlayTutorialCommand extends SimpleCommand  {
         } else {
             if(!(sender instanceof Player)){
                 sender.sendMessage(Lang.PLAYER_ONLY_COMMAND.toString());
+                return true;
+            }
+            if(!sender.hasPermission(getFullPermission() + ".self")) {
+                sender.sendMessage(Lang.NO_PERMS.toString());
                 return true;
             }
 

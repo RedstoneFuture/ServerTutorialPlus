@@ -33,7 +33,7 @@ public class OnPlayerJoinEvent implements Listener{
             Player toHide = plugin.getServer().getPlayer(uuid);
             if(toHide == null) return;
 
-            event.getPlayer().hidePlayer(plugin.getServer().getPlayer(uuid));
+            event.getPlayer().hidePlayer(plugin, plugin.getServer().getPlayer(uuid));
         });
 
         if(!event.getPlayer().hasPlayedBefore()) {
