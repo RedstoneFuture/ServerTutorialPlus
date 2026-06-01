@@ -17,6 +17,7 @@ import java.util.UUID;
 /**
  * Created by Marten on 7-6-2017.
  */
+// TODO: this currently seems unused - as only methods regarding file read / deletion are called
 @SuppressWarnings("ALL")
 public class FlatFileManager{
 

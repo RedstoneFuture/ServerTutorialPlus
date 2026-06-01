@@ -22,15 +22,15 @@ import org.bukkit.scheduler.BukkitRunnable;
  */
 public class TutorialController {
 
-    private ServerTutorialPlus plugin;
-    private Player player;
-    private ServerTutorial serverTutorial;
+    private final ServerTutorialPlus plugin;
+    private final Player player;
+    private final ServerTutorial serverTutorial;
     private boolean running = true;
 
     private int current = 0;
     private IPlayPoint playedPoint;
 
-    private OldValuesPlayer oldValuesPlayer;
+    private final OldValuesPlayer oldValuesPlayer;
 
     public TutorialController(ServerTutorialPlus plugin, Player player, ServerTutorial serverTutorial){
         this.plugin = plugin;
@@ -62,7 +62,7 @@ public class TutorialController {
             return;
         }
 
-        if(serverTutorial.points.size() == 0){
+        if(serverTutorial.points.isEmpty()){
             player.sendMessage(ChatColor.RED + "Tutorial cancelled. No points to be played.");
             cancel(true);
             return;
@@ -70,7 +70,7 @@ public class TutorialController {
 
         //Hide player from other players.
         if(serverTutorial.invisiblePlayer){
-            plugin.getServer().getOnlinePlayers().stream().forEach(p -> p.hidePlayer(plugin, player));
+            plugin.getServer().getOnlinePlayers().forEach(p -> p.hidePlayer(plugin, player));
         }
 
         plugin.inTutorial.put(player.getUniqueId(), this);
