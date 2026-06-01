@@ -29,11 +29,11 @@ public class OnPlayerJoinEvent implements Listener{
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent event){
 
-        plugin.inTutorial.keySet().stream().forEach(uuid -> {
+        plugin.inTutorial.forEach((uuid, ctrl) -> {
             Player toHide = plugin.getServer().getPlayer(uuid);
-            if(toHide == null) return;
+            if (toHide == null || !ctrl.getTutorial().invisiblePlayer) return;
 
-            event.getPlayer().hidePlayer(plugin, plugin.getServer().getPlayer(uuid));
+            event.getPlayer().hidePlayer(plugin, toHide);
         });
 
         if(!event.getPlayer().hasPlayedBefore()) {
